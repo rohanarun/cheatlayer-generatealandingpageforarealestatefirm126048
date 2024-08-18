@@ -13,6 +13,7 @@ const relevantEvents = new Set([
   'product.updated',
   'product.deleted',
   'price.created',
+  'plan.created',
   'price.updated',
   'price.deleted',
   'checkout.session.completed',
