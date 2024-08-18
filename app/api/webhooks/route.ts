@@ -15,6 +15,7 @@ const relevantEvents = new Set([
   'price.created',
   'plan.created',
   'price.updated',
+  'customer.created',
   'price.deleted',
   'checkout.session.completed',
   'customer.subscription.created',
@@ -43,7 +44,8 @@ export async function POST(req: Request) {
       switch (event.type) {
         case 'product.created':
         case 'plan.created':
-
+        case 'customer.created':
+          
         case 'product.updated':
           await upsertProductRecord(event.data.object as Stripe.Product);
           break;
