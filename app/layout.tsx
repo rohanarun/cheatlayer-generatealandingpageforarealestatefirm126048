@@ -20,12 +20,21 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-    const web_html = process.env.APP_NAME;
 
   return (
-    <html lang="en">
-      <body className="bg-black"  dangerouslySetInnerHTML={{ __html: web_html as string }} >
-    
+ <html lang="en">
+      <body className="bg-black">
+        <Navbar />
+        <main
+          id="skip"
+          className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
+        >
+          {children}
+        </main>
+        <Footer />
+        <Suspense>
+          <Toaster />
+        </Suspense>
       </body>
     </html>
   );
