@@ -41,6 +41,8 @@ export async function POST(req: Request) {
     try {
       switch (event.type) {
         case 'product.created':
+        case 'plan.created':
+
         case 'product.updated':
           await upsertProductRecord(event.data.object as Stripe.Product);
           break;
