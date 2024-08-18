@@ -2,10 +2,13 @@ import CustomerPortalForm from '@/components/ui/AccountForms/CustomerPortalForm'
 import EmailForm from '@/components/ui/AccountForms/EmailForm';
 import Pricing from '@/components/ui/Pricing/Pricing';
 
+
 import NameForm from '@/components/ui/AccountForms/NameForm';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import {
+    getProducts,
+
   getUserDetails,
   getSubscription,
   getUser
@@ -13,10 +16,12 @@ import {
 
 export default async function Account() {
   const supabase = createClient();
-  const [user, userDetails, subscription] = await Promise.all([
+  const [user, userDetails, subscription, products] = await Promise.all([
     getUser(supabase),
     getUserDetails(supabase),
-    getSubscription(supabase)
+    getSubscription(supabase),
+        getProducts(supabase),
+
   ]);
 
   if (!user) {
