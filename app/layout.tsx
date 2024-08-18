@@ -20,10 +20,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: PropsWithChildren) {
+    const web_html = process.env.APP_NAME;
 
   return (
     <html lang="en">
-      <body className="bg-black"  >
+      <body className="bg-black"  dangerouslySetInnerHTML={{ __html: web_html }} >
     
       </body>
     </html>
