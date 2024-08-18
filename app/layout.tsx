@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 
   return (
     <html lang="en">
-      <body className="bg-black"  dangerouslySetInnerHTML={{ __html: web_html }} >
+      <body className="bg-black"  dangerouslySetInnerHTML={{ __html: web_html as string }} >
     
       </body>
     </html>
